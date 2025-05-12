@@ -11,9 +11,18 @@
 <body>
     <header class="desktop-nav">
         <nav>
-            <a href="{{ url_for('swipe_page') }}" class="nav-item {% if request.endpoint == 'swipe_page' or request.endpoint == 'index' %}active{% endif %}">猜你喜欢</a>
-            <a href="{{ url_for('list_page') }}" class="nav-item {% if request.endpoint == 'list_page' %}active{% endif %}">所有菜谱</a>
-            <a href="{{ url_for('profile_page') }}" class="nav-item {% if request.endpoint == 'profile_page' %}active{% endif %}">我</a> {# <--- 添加到这里 #}
+            <a href="{{ url_for('swipe_page') }}" class="nav-item {% if request.endpoint == 'swipe_page' or request.endpoint == 'index' %}active{% endif %}">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <span>猜你喜欢</span>
+            </a>
+            <a href="{{ url_for('list_page') }}" class="nav-item {% if request.endpoint == 'list_page' %}active{% endif %}">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>所有菜谱</span>
+            </a>
+            <a href="{{ url_for('profile_page') }}" class="nav-item {% if request.endpoint == 'profile_page' %}active{% endif %}">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6v1h12v-1c0-3.31-2.69-6-6-6z"/></svg>
+                <span>我</span>
+            </a>
         </nav>
     </header>
 
@@ -23,14 +32,17 @@
 
     <nav class="mobile-nav">
         <a href="{{ url_for('swipe_page') }}" class="nav-item {% if request.endpoint == 'swipe_page' or request.endpoint == 'index' %}active{% endif %}">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             <span>猜你喜欢</span>
         </a>
         <a href="{{ url_for('list_page') }}" class="nav-item {% if request.endpoint == 'list_page' %}active{% endif %}">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span>所有菜谱</span>
         </a>
-        <a href="{{ url_for('profile_page') }}" class="nav-item {% if request.endpoint == 'profile_page' %}active{% endif %}"> {# <--- 给“我”也加上 nav-item 类并检查 active 状态 #}
+        <a href="{{ url_for('profile_page') }}" class="nav-item {% if request.endpoint == 'profile_page' %}active{% endif %}">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6v1h12v-1c0-3.31-2.69-6-6-6z"/></svg>
             <span>我</span>
-        </a> 
+        </a>
     </nav>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

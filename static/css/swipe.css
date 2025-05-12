@@ -4,13 +4,15 @@ body {
 }
 
 .swipe-container {
+    height: calc(100vh - 180px); /* 100vh - body的总padding-bottom - 自身padding-top - main的padding-top */
+    padding-top: 10px; /* existing */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */ /* 移除或更改为 flex-start，避免内容过高时垂直居中导致重叠 */
-    height: calc(100vh - 80px); /* 减去导航栏大致高度，请根据实际情况调整80px */
-    padding: 10px; /* 容器的内边距 */
+    /* justify-content: center; /* 卡片可以在容器内居中，或者靠上 */
     box-sizing: border-box;
+    /* 移除 justify-content: space-between; 因为按钮现在固定了 */
+    /* margin-bottom: 0; /* 清除可能从style.css继承的margin */
     background-color: #f4f4f4;
     position: relative;
     overflow: hidden; /* 确保内容溢出时被裁剪 */
@@ -63,41 +65,45 @@ body {
 
 .swipe-card-image-container {
     width: 100%;
-    height: 65%; /* 图片区域占比 */
+    height: auto;
     overflow: hidden;
 }
 
 .swipe-card-image-container img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* 图片填满容器并裁剪 */
+    height: auto;
+    object-fit: contain;
+    object-position: center;
     display: block;
 }
 
 .swipe-card-info {
-    padding: 15px;
+    padding: 10px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .swipe-card-info h3 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #333;
 }
 
 .swipe-card-info p {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #666;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     line-height: 1.4;
 }
 .swipe-card-info .rating {
     font-size: 1em;
 }
 
+.swipe-card-info .tags {
+    display: none; /* 隐藏口味标签字段 */
+}
 
 .swipe-card-overlay {
     position: absolute;

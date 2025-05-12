@@ -15,6 +15,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
+    justify-content: center; /* 居中网格，左右间距一致 */
+    padding: 0 10px; /* 与页面其它部分保持一致的左右空隙 */
 }
 
 .recipe-card {
@@ -75,4 +77,24 @@
     color: #777;
     grid-column: 1 / -1; /* 让占位符占据整行 */
     padding: 20px;
+}
+
+.swipe-actions {
+    position: fixed;
+    bottom: 70px; /* 定位在70px的底部导航栏之上 */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* 或 center 如果按钮不多 */
+    align-items: center;
+    padding: 10px 0; /* 给按钮区域一些上下内边距 */
+    background-color: #ffffff; /* 或者你的页面背景色，防止透明看到下方内容 */
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.05); /* 轻微的阴影与上方内容分隔 */
+    z-index: 999; /* 比卡片高，比导航栏低或同级（如果导航栏z-index是1000） */
+    /* 移除之前的 margin-bottom 和 max-width */
+    /* margin-top 将不再直接影响其定位，但会影响其与卡片的视觉距离 */
+}
+
+body {
+    padding-bottom: 160px; /* 调整为 底部导航 + swipe-actions 的总高度 */
 }

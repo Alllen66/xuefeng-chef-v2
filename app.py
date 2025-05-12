@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv() # Load environment variables from .env file
+
 import os
 from flask import Flask, render_template, jsonify, request, send_from_directory
 import requests
@@ -293,4 +296,4 @@ def home():
     return render_template('swipe.html') # 保持和当前 /swipe 一致，后续再添加数据
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(host='0.0.0.0', port=5001, debug=True)

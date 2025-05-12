@@ -2,12 +2,12 @@
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 60px; /* Ensure space for fixed bottom nav */
+        padding-bottom: 70px; /* Ensure space for fixed bottom nav, increased */
     }
 
     main {
         padding: 10px;
-        padding-bottom: 70px; /* Extra padding for mobile nav */
+        padding-bottom: 10px; /* Reduce extra bottom padding */
     }
 
     .desktop-nav {
@@ -20,8 +20,8 @@
 
     /* Swipe Page Mobile */
     .swipe-container {
-        height: calc(100vh - 120px); /* Adjust for mobile nav and some top space */
         padding-top: 10px;
+        /* Let height be auto so content plus actions fit naturally */
     }
     .card-stack {
         width: 90vw;
@@ -39,6 +39,15 @@
         width: 60px;
         height: 60px;
         font-size: 1.2em;
+    }
+
+    .swipe-actions { /* Fine tune spacing above mobile nav */
+        margin-bottom: 0; /* Remove extra bottom gap */
+        margin-top: 8px; /* 减小与卡片区域之间的距离 */
+        padding: 0; /* 去除多余垂直内边距 */
+        width: 100%; /* Ensure it doesn't try to be wider than screen */
+        max-width: 350px; /* Consistent max-width with cards or as needed */
+        /* margin-top is already defined in style.css, can be overridden if needed */
     }
 
     /* List Page Mobile & Profile Page Mobile - 统一使用 .recipe-grid (或你HTML中实际的类名) */
