@@ -175,10 +175,6 @@ def get_bitable_records(page_token=None, page_size=20):
     return {"items": all_records, "has_more": has_more, "next_page_token": current_page_token}
 
 
-@app.route('/')
-def index():
-    return "Hello, World!" # 示例路由
-
 @app.route('/swipe')
 def swipe_page():
     return render_template('swipe.html')
@@ -290,7 +286,11 @@ def serve_static(path):
 # 添加根路径重定向
 @app.route('/')
 def home():
-    return render_template('base.html')
+    # 假设 "猜你喜欢" 的数据会通过 get_bitable_records() 或类似方式获取
+    #  并传递给 swipe.html 模板
+    #  例如: data = get_bitable_records(page_size=10) # 获取10条记录作为示例
+    #  return render_template('swipe.html', items=data.get('items', []))
+    return render_template('swipe.html') # 保持和当前 /swipe 一致，后续再添加数据
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
