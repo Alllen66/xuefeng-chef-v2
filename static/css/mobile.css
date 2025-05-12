@@ -1,0 +1,111 @@
+/* Mobile Specific Styles */
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 60px; /* Ensure space for fixed bottom nav */
+    }
+
+    main {
+        padding: 10px;
+        padding-bottom: 70px; /* Extra padding for mobile nav */
+    }
+
+    .desktop-nav {
+        display: none; /* Hide desktop nav on mobile */
+    }
+
+    .mobile-nav {
+        display: flex; /* Show mobile nav */
+    }
+
+    /* Swipe Page Mobile */
+    .swipe-container {
+        height: calc(100vh - 120px); /* Adjust for mobile nav and some top space */
+        padding-top: 10px;
+    }
+    .card-stack {
+        width: 90vw;
+        height: 120vw; /* Make cards taller on mobile */
+        max-height: 500px; /* Cap height */
+    }
+    .card-info h3 {
+        font-size: 1.2em;
+    }
+    .card-info p {
+        font-size: 0.8em;
+    }
+    .action-btn {
+        padding: 12px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.2em;
+    }
+
+    /* List Page Mobile & Profile Page Mobile - 统一使用 .recipe-grid (或你HTML中实际的类名) */
+    .recipe-grid { /* 确保这个类名与你 HTML 中的一致 */
+        display: grid; /* 必须是 grid 布局 */
+        grid-template-columns: repeat(2, 1fr); /* 两列，每列占据可用空间的一半 */
+        gap: 10px; /* 卡片之间的间距，可以调整 */
+    }
+
+    /* 如果你之前有针对 .recipe-grid 的其他媒体查询，例如：
+       @media (min-width: 480px) and (max-width: 768px) { ... }
+       并且它设置了不同的列数，你可能需要调整或移除它，以避免冲突，
+       或者确保这个两列的规则优先级更高或更具体。
+       对于小于 768px 的屏幕，上面的 .recipe-grid 规则会应用两列。
+    */
+
+    .recipe-card-item img { /* 假设卡片图片类名是这个 */
+        height: auto;
+        max-height: 180px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .recipe-card-info h3 { /* 假设卡片信息区域标题是这个 */
+        font-size: 1em; /* 调整字体大小 */
+        /* margin-bottom: 6px; */
+    }
+
+    .recipe-card-info p { /* 假设卡片信息区域段落是这个 */
+        font-size: 0.85em; /* 调整字体大小 */
+        /* margin-bottom: 4px; */
+    }
+
+    /* Detail Page Mobile */
+    .detail-container {
+        padding: 15px;
+        margin: 10px;
+    }
+    .detail-container h1 {
+        font-size: 1.6em;
+    }
+    .detail-container h2 {
+        font-size: 1.3em;
+    }
+}
+
+/* 确保文件末尾之前添加的 .recipes-grid (复数形式) 和相关规则
+   已经被整合到上面的 @media 查询内部，并使用了正确的类名 (例如 .recipe-grid 单数)。
+   如果已经整合，下面的内容可以删除。
+*/
+/*
+.recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.recipe-card .swipe-card-info h3,
+.recipe-card-info h3 {
+    font-size: 1.1em;
+}
+
+.recipe-card .swipe-card-info p,
+.recipe-card-info p {
+    font-size: 0.85em;
+}
+
+.recipe-card {
+    padding: 10px;
+}
+*/
